@@ -20,8 +20,8 @@ class MongoDBConnection {
         mongoPool.max = maxConnections;
 
         this.connections = new ConnectionPool!Mongo (
-                &connectionFactory, maxConnections
-                );
+            &connectionFactory, maxConnections
+        );
     }
 
     ~this () {
@@ -35,8 +35,7 @@ class MongoDBConnection {
 
     import std.traits : MemberFunctionsTuple;
     auto opDispatch (string fun, Args ...)(Args args) 
-        if (MemberFunctionsTuple!(Mongo, fun).length)
-        {
+        if (MemberFunctionsTuple!(Mongo, fun).length) {
             auto conn = connections.lockConnection ();
             enum called = `conn.` ~ fun ~ ` (args)`;
             static if (__traits (compiles, mixin (called))) {
