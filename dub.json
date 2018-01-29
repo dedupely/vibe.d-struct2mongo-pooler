@@ -6,9 +6,15 @@
 	"dependencies": {
 		"vibe-d": "~>0.8.2",
 		"struct2mongo": "~>0.6.2",
-        "mondo": "~>1.1"
+    "mondo": "~>1.1",
+    "vibe-d:tls": "*"
 	},
-    "versions" : ["VibeUseOpenSSL11"],
+  "subConfigurations": {
+    "vibe-d:tls": "notls"
+  },
+	"versions": [
+		"VibeDefaultMain"
+	],
 	"description": "Mongo pooler for use with vibe.d",
 	"copyright": "Copyright © 2018, Christian Durán C",
 	"license": "MIT"
