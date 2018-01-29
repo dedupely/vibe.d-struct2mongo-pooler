@@ -1,4 +1,4 @@
-´´´
+```
 import vibe.vibe;
 import vibedstruct2mongo;
 import struct2mongo;
@@ -30,4 +30,4 @@ void hello(HTTPServerRequest req, HTTPServerResponse res)
 
   col.insert(Example(5));
 }
-´´´
+```
