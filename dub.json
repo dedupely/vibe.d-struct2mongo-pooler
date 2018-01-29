@@ -1,0 +1,15 @@
+{
+	"name": "vibedstruct2mongo",
+	"authors": [
+		"Christian Durán C"
+	],
+	"dependencies": {
+		"vibe-d": "~>0.8.2",
+		"struct2mongo": "~>0.6.2",
+        "mondo": "~>1.1"
+	},
+    "versions" : ["VibeUseOpenSSL11"],
+	"description": "Mongo pooler for use with vibe.d",
+	"copyright": "Copyright © 2018, Christian Durán C",
+	"license": "MIT"
+}
