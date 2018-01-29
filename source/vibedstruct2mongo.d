@@ -1,16 +1,15 @@
 module vibedstruct2mongo;
-import vibe.core.log;
 
 class MongoDBConnection {
     import vibe.d;
     import vibe.core.connectionpool;
 
-    import mondo : MongoPool, Mongo;
+    import mondo : Mongo;
     ConnectionPool!Mongo connections;
     private string connectionString;
 
     auto connectionFactory () {
-        return mongoPool.pop ();
+        return new Mongo(this.connectionString);
     }
 
     this (string connectionString, uint maxConnections) {
@@ -20,11 +19,6 @@ class MongoDBConnection {
             &connectionFactory, maxConnections
         );
     }
-
-    ~this () {
-        connections = null;
-    }
-
     auto opIndex (string collection) {
         return connections.lockConnection [collection];
     }
